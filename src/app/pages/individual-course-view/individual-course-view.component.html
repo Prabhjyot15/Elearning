@@ -1,0 +1,107 @@
+<div>
+  <app-header></app-header>
+  <div class="layoutpage-with-sidebar">
+    <app-sidebar></app-sidebar>
+    <div class="content-wrapp" *ngIf="courseData">
+      <div class="course-resume-wrapper">
+        <div class="container">
+          <div class="row" style="margin-top: 20px; margin-bottom: 40px;">
+            <!-- --------The Big Thumbnail----------- -->
+            <div class="uk-thumbnail-width">
+              <div class="course-thumbnail">
+                <img src="{{ courseData.thumbnailPath }}" alt="" />
+              </div>
+            </div>
+            <!-- -----------Course Details next to Thumbnail----------- -->
+            <div class="uk-course-details">
+              <h1 style="color: white;">{{ courseData.courseName }}</h1>
+              <div style="max-width: 500px;">
+                <p>
+                  {{ courseData.description }}
+                </p>
+              </div>
+
+              <div class="course-instructor-info">
+                <ul>
+                  <li>Created by <a class="instructor-name"> ABC XYZ </a></li>
+                  <li>Last updated 10/2019</li>
+                </ul>
+              </div>
+              <div style="margin-top: 10px;">
+                <a style="font-size: large;"
+                [routerLink]="['/course/',courseParamsPath,'learn']">
+                  Start Learning
+                  <i
+                    style="
+                      margin-top: 10px;
+                      margin-left: 2px;
+                      font-size: medium;
+                    "
+                    class="fa fa-chevron-right"
+                  ></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-description-wrapper">
+        <!-- -----------WhatYouWillLearn------------ -->
+        <div>
+          <div>
+            <h4 class="title">
+              What You'll Learn
+            </h4>
+            <ol class="what-you-will-learn" style="margin-left: -20px;">
+              <li class="para" *ngFor="let w of courseData.whatYouWillLearn">
+                {{ w }}
+              </li>
+            </ol>
+            <hr />
+          </div>
+        </div>
+
+        <!-- ----------Requirements-------------- -->
+
+        <div>
+          <h4 class="title">Requirements</h4>
+          <ol class="what-you-will-learn" style="margin-left: -20px;">
+            <li class="para" *ngFor="let r of courseData.requirements">
+              {{r}}
+            </li>
+          </ol>
+          <hr />
+        </div>
+
+        <!-- ---------Curriculum--------- -->
+        <div style="max-width: 500px;">
+          <h4 class="title">Curriculum</h4>
+          <mat-accordion [multi]="true">
+            <mat-expansion-panel
+              class="specific-class"
+              (opened)="panelOpenState = true"
+              (closed)="panelOpenState = false"
+              style="background: rgb(78, 88, 100);"
+              *ngFor="let chaps of courseData.content"
+            >
+              <mat-expansion-panel-header>
+                <mat-panel-title style="color: white;">
+                  {{chaps.chapterName}}
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <div
+                class="row"
+                style="margin-left: 20px;"
+                *ngFor="let videos of chaps.videos"
+              >
+                <span class="video-icon"></span
+                ><a class="video-title" href="">{{videos.videoTitle}}</a>
+              </div>
+            </mat-expansion-panel>
+          </mat-accordion>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

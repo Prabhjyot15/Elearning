@@ -1,0 +1,87 @@
+<div class="video-wrapper" *ngIf="videoUrl">
+  <div class="course-layouts">
+    <div class="video-player-section">
+      <div class="course-header">
+        <a [routerLink]="['/course',courseParamsPath]" class="btn-back">
+          <i class="fa fa-arrow-left"></i>
+        </a>
+        <h4 class="text-white">{{ videoData.courseName }}</h4>
+      </div>
+      <div class="video-section">
+        <div>
+          <h1 class="video-heading">{{videoHeading}}</h1>
+        </div>
+        <video
+          id="my-video-player"
+          class="video-js"
+          controls
+          preload="auto"
+          src="{{videoUrl}}"
+          width="800"
+          height="600"
+          poster="MY_VIDEO_POSTER.jpg"
+        >
+          <p class="vjs-no-js">
+            To view this video please enable JavaScript, and consider upgrading
+            to a web browser that
+            <a href="https://videojs.com/html5-video-support/" target="_blank"
+              >supports HTML5 video</a
+            >
+          </p>
+        </video>
+      </div>
+    </div>
+
+    <!-- ----------Course Sidebar------------ -->
+    <div class="course-sidebar">
+      <div class="course-sidebar-title" style="margin-top: 10px;">
+        <h3>Curriculum</h3>
+      </div>
+
+      <div class="course-sidebar-container" data-simplebar="init">
+        <div class="simplebar-wrapper">
+          <div class="simplebar-height-auto-observer-wrapper">
+            <div class="simplebar-height-auto-observer"></div>
+          </div>
+          <div class="simplebar-mask">
+            <div class="simplebar-offset">
+              <div class="simplebar-content">
+                <mat-accordion [multi]="true">
+                  <mat-expansion-panel
+                    class="specific-class"
+                    (opened)="panelOpenState = true"
+                    (closed)="panelOpenState = false"
+                    style="background: rgb(78, 88, 100);"
+                    *ngFor="let chaps of videoData.content"
+                  >
+                    <mat-expansion-panel-header>
+                      <mat-panel-title style="color: white;">
+                        {{ chaps.chapterName }}
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <div
+                      class="row"
+                      style="
+                        margin-left: 10px;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                      "
+                      *ngFor="let vd of chaps.videos"
+                    >
+                      <span class="video-icon"></span
+                      ><a
+                        class="video-title"
+                        (click)="onVideoTitleClicked(vd.videoTitle, vd.videoUrl)"
+                        >{{ vd.videoTitle }}</a
+                      >
+                    </div>
+                  </mat-expansion-panel>
+                </mat-accordion>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

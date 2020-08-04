@@ -1,0 +1,28 @@
+<div class="container">
+  <h1>
+    <span style="color: gray;">GeeksforGeek</span>
+
+    <button class="btn btn-sm btn-danger pull-right" (click)="closeDialog()">
+      Close
+    </button>
+  </h1>
+</div>
+<mat-dialog-content class="mat-typography">
+  <mat-horizontal-stepper linear #stepper style="max-width: 700px;">
+    <mat-step [stepControl]="firstFormGroup">
+      <form >
+        <ng-template matStepLabel style="color: black;"
+          >Fill out your name</ng-template
+        >
+        <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup">
+      <ng-template matStepLabel style="color: black;"
+        >Fill out your name</ng-template
+      >
+    </mat-step>
+  </mat-horizontal-stepper>
+</mat-dialog-content>

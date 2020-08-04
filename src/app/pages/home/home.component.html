@@ -1,0 +1,96 @@
+<!-- <!DOCTYPE html>      <style>       * {         box-sizing: border-box;       }       html {         -ms-text-size-adjust: 100%;         -webkit-text-size-adjust: 100%;       }       body {         margin: 0;       }       body {         font-family: "Montserrat", sans-serif;       }       /* Float four columns side by side */       .column {         float: left;         width: 18%;         padding: 0 10px;       }       /* Remove extra left and right margins, due to padding */       .row {         margin: 0 -5px;       }       /* Clear floats after the columns */       .row:after {         content: "";         display: table;         clear: both;       }       /* Responsive columns */       @media screen and (max-width: 600px) {         .column {           width: 100%;           display: block;           margin-bottom: 20px;         }       }       /* Style the counter cards */       .card {         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);         padding: 10px;         text-align: center;         background-color: #e4faf7;       }      -->
+<div>
+  <app-header></app-header>
+  <div class="layoutpage-with-sidebar">
+    <app-sidebar></app-sidebar>
+    <div class="content-wrapp">
+      <div>
+        <img
+          src="../../assets/img/s5tvj1593772691.png"
+          alt="elearning"
+          height="400px"
+          width="1289px"
+        />
+        <button class="explore-btn">Explore Courses</button>
+      </div>
+      <div style="margin-left: 20px; margin-top: 20px;">
+        <h4>Courses :</h4>
+      <div class="row" style="width: 1200px; margin-left: 0;">
+        <ul class="course-list">
+          <!-- course card  -->
+          <li
+            class="uk-active"
+            *ngFor="let c of courses"
+            (click)="onCourseCardClicked(c.courseParamsPath)"
+          >
+            <a>
+              <div class="course-card">
+                <div class="course-card-thumbnail">
+                  <img class="image" src="{{ c.thumbnailPath }}" />
+                  <span class="play-button-trigger"></span>
+                </div>
+                <div class="course-card-body">
+                  <div class="course-card-info">
+                    <div><span class="category">Angular</span></div>
+                  </div>
+                  <h4>{{ c.courseName }}</h4>
+                  <p>{{ c.description }}</p>
+                </div>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <br /><br />
+      <h4>Popular Courses :</h4>
+      <!-- <div class="row" style="width: 1200px;">
+        <div class="column">
+          <div class="card">
+            <p>
+              <label for="js" style="font-size: 15px; padding-top: 10px;"
+                >Machine Learning</label
+              >
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <p>
+              <label for="html" style="font-size: 15px; padding-top: 10px;"
+                >Deep Learning</label
+              >
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <p>
+              <label for="html" style="font-size: 15px; padding-top: 10px;"
+                >Python</label
+              >
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <p>
+              <label for="angular" style="font-size: 15px; padding-top: 10px;"
+                >Web Development</label
+              >
+            </p>
+          </div>
+        </div>
+        <div class="column">
+          <div class="card">
+            <p>
+              <label for="js" style="font-size: 15px; padding-top: 10px;"
+                >RDBMS</label
+              >
+            </p>
+          </div>
+        </div>
+      </div>   -->
+      </div>
+    </div>
+  </div>
+</div>

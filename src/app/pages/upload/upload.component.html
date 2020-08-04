@@ -1,0 +1,155 @@
+<div>
+  <app-header></app-header>
+  <div class="layout">
+    <app-sidebar></app-sidebar>
+    <div class="content">
+      <div class="main-content">
+        <div class="title">
+          Upload Section
+        </div>
+        <div class="buttons">
+          <button
+            type="button"
+            class="btn btn-primary blue"
+            data-toggle="modal"
+            data-target="#exampleModalCenter"
+          >
+            <i-feather name="play-circle" class="icons"></i-feather>Course
+          </button>
+
+          <button class="btn green">
+            <i-feather name="music" class="icons"></i-feather>Podcast
+          </button>
+          <button class="btn pink">
+            <i-feather name="youtube" class="icons"></i-feather>Episode
+          </button>
+        </div>
+        <div class="no-uploads">
+          <img
+            src="../../../assets/img/upload.svg"
+            class="image-nouploads"
+            alt="hgffjfj"
+          />
+          <h2 class="no-uploads-message">
+            Upload your first Course or Podcast
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<!--------------------Course Upload Modal ---------------------->
+<div
+  class="modal fade"
+  id="exampleModalCenter"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">
+          Modal title
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <ul class="stepper horizontal" id="horizontal-stepper">
+          <li class="step active">
+            <div class="step-title waves-effect waves-dark">
+              Step 1
+            </div>
+            <div class="step-new-content">
+              <div class="row">
+                <div class="md-form col-12 ml-auto">
+                  <input
+                    id="email-horizontal"
+                    type="email"
+                    class="validate form-control"
+                    required
+                  />
+                  <label for="email-horizontal">Email</label>
+                </div>
+              </div>
+              <div class="step-actions">
+                <button
+                  class="waves-effect waves-dark btn btn-sm btn-primary next-step"
+                  data-feedback="someFunction21"
+                >
+                  CONTINUE
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-title waves-effect waves-dark">
+              Step 2
+            </div>
+            <div class="step-new-content">
+              <div class="row">
+                <div class="md-form col-12 ml-auto">
+                  <input
+                    id="password-horizontal"
+                    type="password"
+                    class="validate form-control"
+                    required
+                  />
+                  <label for="password-horizontal">Your password</label>
+                </div>
+              </div>
+              <div class="step-actions">
+                <button
+                  class="waves-effect waves-dark btn btn-sm btn-primary next-step"
+                  data-feedback="someFunction21"
+                >
+                  CONTINUE
+                </button>
+                <button
+                  class="waves-effect waves-dark btn btn-sm btn-secondary previous-step"
+                >
+                  BACK
+                </button>
+              </div>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step-title waves-effect waves-dark">
+              Step 3
+            </div>
+            <div class="step-new-content">
+              Finish!
+              <div class="step-actions">
+                <button
+                  class="waves-effect waves-dark btn-sm btn btn-primary m-0 mt-4"
+                  type="button"
+                >
+                  SUBMIT
+                </button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">
+          Save changes
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
